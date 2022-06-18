@@ -27,7 +27,7 @@ int read_proc(char *buf, char **start, off_t offset, int count, int *eof, void *
         if (task->pid == ipid)
         {
             list_for_each(list, &task->children) { ++num_of_children; }
-            len = sprintf(buf, "\n%d\n%lX~%lX\n%lX~%lX\n%lX~%lX\n%s\n%d\n",
+            len = sprintf(buf, "%d\n%lX~%lX\n%lX~%lX\n%lX~%lX\n%s\n%d\n",
                           task->parent->pid,
                           task->mm->start_code, task->mm->end_code,
                           task->mm->start_data, task->mm->end_data,
